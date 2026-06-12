@@ -263,7 +263,7 @@ export default function HomePage() {
 }
 
 // Reusable Component for the Publication Cards
-function PublicationCard({ publication }) {
+function PublicationCard({ publication }: { publication: any }) {
   return (
     <div
       style={{
