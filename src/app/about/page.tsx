@@ -68,8 +68,9 @@ export default function AboutPage() {
           </div>
 
           <div>
+            {/* UPDATED IMAGE HERE */}
             <img
-              src="/images/dr-shivang-3.jpg"
+              src="/images/dr shivang 14.jpeg"
               alt="Dr Shivang"
               style={{
                 width: "100%",
@@ -182,7 +183,7 @@ export default function AboutPage() {
             padding: "60px",
             boxShadow:
               "0 20px 60px rgba(0,0,0,.08)",
-            marginBottom: "80px", // Added margin bottom to separate from gallery
+            marginBottom: "80px",
           }}
         >
           <h2
@@ -245,7 +246,7 @@ export default function AboutPage() {
                   borderRadius: "20px",
                   overflow: "hidden",
                   boxShadow: "0 15px 35px rgba(8,59,44,0.08)",
-                  height: "350px", // Keeps all images a uniform height
+                  height: "350px",
                   background: "white",
                 }}
               >
@@ -255,8 +256,8 @@ export default function AboutPage() {
                   style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover", // Ensures images fill the box without squishing
-                    objectPosition: "top", // Focuses on the top of the image (faces/text)
+                    objectFit: "cover",
+                    objectPosition: "top",
                     transition: "transform 0.4s ease",
                   }}
                   onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
