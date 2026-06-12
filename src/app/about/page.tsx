@@ -1,3 +1,5 @@
+"use client";
+
 export default function AboutPage() {
   return (
     <main
@@ -180,6 +182,7 @@ export default function AboutPage() {
             padding: "60px",
             boxShadow:
               "0 20px 60px rgba(0,0,0,.08)",
+            marginBottom: "80px", // Added margin bottom to separate from gallery
           }}
         >
           <h2
@@ -208,6 +211,62 @@ export default function AboutPage() {
             healthcare initiatives.
           </p>
         </section>
+
+        {/* MEDIA & APPEARANCES GALLERY */}
+        <section style={{ marginBottom: "40px" }}>
+          <div style={{ textAlign: "center", marginBottom: "40px" }}>
+            <p style={{ color: "#b68a2c", fontWeight: 700, letterSpacing: "3px", marginBottom: "10px" }}>
+              GALLERY
+            </p>
+            <h2 style={{ color: "#14532d", fontSize: "42px", fontFamily: "Georgia, serif" }}>
+              Media & Appearances
+            </h2>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "24px",
+              maxWidth: "1300px",
+              margin: "0 auto",
+            }}
+          >
+            {[
+              "/images/dr shivang 9.jpeg",
+              "/images/dr shivang 10.jpeg",
+              "/images/dr shivang 11.jpeg",
+              "/images/dr shivang 12.jpeg",
+              "/images/dr shivang 13.jpeg",
+            ].map((src, idx) => (
+              <div
+                key={idx}
+                style={{
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  boxShadow: "0 15px 35px rgba(8,59,44,0.08)",
+                  height: "350px", // Keeps all images a uniform height
+                  background: "white",
+                }}
+              >
+                <img
+                  src={src}
+                  alt={`Dr. Shivang Appearance ${idx + 1}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover", // Ensures images fill the box without squishing
+                    objectPosition: "top", // Focuses on the top of the image (faces/text)
+                    transition: "transform 0.4s ease",
+                  }}
+                  onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                  onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
     </main>
   );
