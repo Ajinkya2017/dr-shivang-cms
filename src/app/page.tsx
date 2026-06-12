@@ -54,17 +54,24 @@ export default function HomePage() {
         position: "relative",
         overflow: "hidden",
         fontFamily: "system-ui, -apple-system, sans-serif",
-        padding: "60px 20px",
+        padding: "40px 20px 60px", // Adjusted top padding to accommodate the new nav
       }}
     >
       {/* CSS For Hover Effects */}
       <style>{`
-        .nav-button {
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .top-nav-link {
+          position: relative;
+          color: #083b2c;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
         }
-        .nav-button:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 35px rgba(8,59,44,0.1) !important;
+        .top-nav-link:hover {
+          background: rgba(8, 59, 44, 0.05);
+          color: #115e45;
         }
         .read-more-btn {
           transition: background 0.2s ease;
@@ -91,8 +98,44 @@ export default function HomePage() {
 
       <div style={{ maxWidth: "1300px", margin: "0 auto", position: "relative", zIndex: 2 }}>
         
+        {/* TOP RIGHT NAVIGATION */}
+        <nav 
+          style={{ 
+            position: "absolute", 
+            top: "0", 
+            right: "0", 
+            display: "flex", 
+            gap: "10px",
+            alignItems: "center",
+            zIndex: 10 
+          }}
+        >
+          <a href="/about" className="top-nav-link">About</a>
+          <a href="/articles" className="top-nav-link">Articles</a>
+          <a href="/news" className="top-nav-link">News</a>
+          <a 
+            href="/contact" 
+            style={{
+              background: "#083b2c",
+              color: "white",
+              textDecoration: "none",
+              fontWeight: 600,
+              fontSize: "16px",
+              padding: "10px 24px",
+              borderRadius: "12px",
+              marginLeft: "10px",
+              boxShadow: "0 4px 12px rgba(8,59,44,0.15)",
+              transition: "transform 0.2s ease"
+            }}
+            onMouseOver={(e) => e.currentTarget.style.transform = "translateY(-2px)"}
+            onMouseOut={(e) => e.currentTarget.style.transform = "translateY(0)"}
+          >
+            Contact
+          </a>
+        </nav>
+
         {/* HEADER SECTION */}
-        <header style={{ textAlign: "center", marginBottom: "40px", position: "relative" }}>
+        <header style={{ textAlign: "center", marginBottom: "40px", paddingTop: "40px", position: "relative" }}>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", marginBottom: "20px" }}>
             <div style={{ height: "1px", width: "60px", background: "#c59b3b" }} />
             <p style={{ color: "#c59b3b", letterSpacing: "3px", fontWeight: 700, fontSize: "14px", margin: 0 }}>
@@ -182,41 +225,6 @@ export default function HomePage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
             <PublicationCard publication={publications[1]} />
 
-            {/* QUICK NAVIGATION BUTTONS */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "15px" }}>
-              {[
-                { label: "About", icon: "ℹ️", link: "/about" },
-                { label: "Articles", icon: "📄", link: "/articles" },
-                { label: "News", icon: "📰", link: "/news" },
-                { label: "Contact", icon: "✉️", link: "/contact" },
-              ].map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.link}
-                  className="nav-button"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.9)",
-                    backdropFilter: "blur(10px)",
-                    borderRadius: "16px",
-                    padding: "25px 15px",
-                    textAlign: "center",
-                    textDecoration: "none",
-                    color: "#083b2c",
-                    boxShadow: "0 10px 30px rgba(8,59,44,0.05)",
-                    border: "1px solid rgba(8,59,44,0.05)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "10px",
-                    fontWeight: 600,
-                  }}
-                >
-                  <span style={{ fontSize: "28px" }}>{item.icon}</span>
-                  {item.label}
-                </a>
-              ))}
-            </div>
-
             {/* CTA SECTION */}
             <div
               style={{
@@ -228,6 +236,7 @@ export default function HomePage() {
                 boxShadow: "0 20px 40px rgba(8,59,44,0.2)",
                 position: "relative",
                 overflow: "hidden",
+                marginTop: "10px",
               }}
             >
               <div style={{ position: "relative", zIndex: 2 }}>
