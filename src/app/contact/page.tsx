@@ -71,8 +71,7 @@ export default function ContactPage() {
               background: "white",
               padding: "50px",
               borderRadius: "30px",
-              boxShadow:
-                "0 20px 60px rgba(0,0,0,.08)",
+              boxShadow: "0 20px 60px rgba(0,0,0,.08)",
             }}
           >
             <h2
@@ -85,43 +84,26 @@ export default function ContactPage() {
               Contact Information
             </h2>
 
-            <div style={{ marginBottom: "30px" }}>
-              <h3
-                style={{
-                  color: "#b68a2c",
-                  marginBottom: "10px",
-                }}
-              >
-                📧 Email
-              </h3>
-
-              <p
-                style={{
-                  color: "#4b5563",
-                  fontSize: "18px",
-                }}
-              >
-                contact@drshivang.com
+            {/* ADDED CONTACT SNIPPET */}
+            <div style={{ marginTop: "20px", marginBottom: "30px" }}>
+              <p style={{ fontSize: "18px", color: "#4b5563", marginBottom: "15px" }}>
+                <strong style={{ color: "#b68a2c" }}>Email:</strong>{" "}
+                <a
+                  href="mailto:shivang.swaminarayan@gmail.com"
+                  style={{ color: "#083b2c", textDecoration: "none" }}
+                >
+                  shivang.swaminarayan@gmail.com
+                </a>
               </p>
-            </div>
 
-            <div style={{ marginBottom: "30px" }}>
-              <h3
-                style={{
-                  color: "#b68a2c",
-                  marginBottom: "10px",
-                }}
-              >
-                📞 Phone
-              </h3>
-
-              <p
-                style={{
-                  color: "#4b5563",
-                  fontSize: "18px",
-                }}
-              >
-                +91 XXXXX XXXXX
+              <p style={{ fontSize: "18px", color: "#4b5563" }}>
+                <strong style={{ color: "#b68a2c" }}>Phone:</strong>{" "}
+                <a
+                  href="tel:+919925242312"
+                  style={{ color: "#083b2c", textDecoration: "none" }}
+                >
+                  +91 9925242312
+                </a>
               </p>
             </div>
 
@@ -174,8 +156,7 @@ export default function ContactPage() {
               background: "white",
               padding: "50px",
               borderRadius: "30px",
-              boxShadow:
-                "0 20px 60px rgba(0,0,0,.08)",
+              boxShadow: "0 20px 60px rgba(0,0,0,.08)",
             }}
           >
             <h2
