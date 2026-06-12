@@ -6,20 +6,27 @@ export default function HomePage() {
   const publications = [
     {
       id: "1",
+      title: "Joins Board of Advisors at Gau Vishwa Vidyapeetham",
+      desc: "Featured in Pashudhan Praharee: Dr. Shivang Swaminarayan appointed to the prestigious Board of Advisors.",
+      icon: "📰",
+      link: "https://www.pashudhanpraharee.com/dr-shivang-swaminarayan-of-ida-joins-board-of-advisors-at-gau-vishwa-vidyapeetham/",
+    },
+    {
+      id: "2",
       title: "Holistic Healthcare Approaches in Modern India",
       desc: "Research publication focused on advancing sustainable healthcare and AYUSH integration.",
       icon: "📖",
       link: "/articles",
     },
     {
-      id: "2",
+      id: "3",
       title: "Role of AYUSH in Preventive Healthcare",
       desc: "Research publication focused on advancing sustainable healthcare and AYUSH integration.",
       icon: "🛡️",
       link: "/articles",
     },
     {
-      id: "3",
+      id: "4",
       title: "Integrating Traditional and Modern Medicine",
       desc: "Research publication focused on advancing sustainable healthcare and AYUSH integration.",
       icon: "🌿",
@@ -54,7 +61,7 @@ export default function HomePage() {
         position: "relative",
         overflow: "hidden",
         fontFamily: "system-ui, -apple-system, sans-serif",
-        padding: "40px 20px 60px", // Adjusted top padding to accommodate the new nav
+        padding: "40px 20px 60px",
       }}
     >
       {/* CSS For Hover Effects */}
@@ -224,6 +231,7 @@ export default function HomePage() {
           {/* RIGHT COLUMN */}
           <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
             <PublicationCard publication={publications[1]} />
+            <PublicationCard publication={publications[3]} />
 
             {/* CTA SECTION */}
             <div
@@ -336,6 +344,8 @@ function PublicationCard({ publication }: { publication: any }) {
           
           <a
             href={publication.link}
+            target={publication.link.startsWith("http") ? "_blank" : "_self"}
+            rel={publication.link.startsWith("http") ? "noopener noreferrer" : ""}
             className="read-more-btn"
             style={{
               display: "inline-flex",
