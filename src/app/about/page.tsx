@@ -70,7 +70,7 @@ export default function AboutPage() {
           <div>
             {/* UPDATED IMAGE HERE */}
             <img
-              src="/images/dr shivang 14.jpeg"
+              src="/images/dr-shivang-14.jpeg"
               alt="Dr Shivang"
               style={{
                 width: "100%",
