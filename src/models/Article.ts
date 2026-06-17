@@ -6,12 +6,16 @@ const ArticleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
-    category: {
+    // Changed "category" to "description" to match our form!
+    description: {
       type: String,
       required: true,
     },
-
+    // Added the Cover Image URL (Making it optional)
+    imageUrl: {
+      type: String,
+      required: false,
+    },
     content: {
       type: String,
       required: true,
@@ -22,6 +26,4 @@ const ArticleSchema = new mongoose.Schema(
   }
 );
 
-export default
-  mongoose.models.Article ||
-  mongoose.model("Article", ArticleSchema);
+export default mongoose.models.Article || mongoose.model("Article", ArticleSchema);
