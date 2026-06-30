@@ -5,21 +5,18 @@ import { getServerSession } from "next-auth";
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    // 1. Secure the boundary: verify the user is logged in
     const session = await getServerSession();
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // 2. Connect to MongoDB
     await connectDB();
 
-    const { id } = params;
+    const { id } = await params;
 
-    // 3. Delete the document matching this specific ID
     const deletedArticle = await Article.findByIdAndDelete(id);
 
     if (!deletedArticle) {
@@ -30,9 +27,10 @@ export async function DELETE(
       { message: "Article successfully deleted from the database" },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to delete article", details: error.message },
+      { error: "Failed to delete article", details: message },
       { status: 500 }
     );
   }
